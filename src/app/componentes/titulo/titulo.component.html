@@ -1,0 +1,4 @@
+<h1>contador:{{contador}}</h1>
+  <hr>
+  <app-sumar [cont]="contador"(respuesta)="renderizar($event)"></app-sumar>
+  <app-restar [cont]="contador"(respuesta)="renderizar($event)"></app-restar>
