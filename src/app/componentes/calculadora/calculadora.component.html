@@ -1,0 +1,14 @@
+<div class="container"> 
+
+    <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">formula</span>
+        </div>
+        <input type="text" class="form-control" placeholder="escriba la formula matematica" aria-label="Username" aria-describedby="addon-wrapping"[(ngModel)]="formula">
+         <button class="btn btn-info"(click)="calcular()">calcular</button>
+         <button class="btn btn-dark" (click)="retroceso()"><-</button>
+    </div>
+
+    <br>
+    <h4>Resultado= {{Resultado}}</h4>
+</div>
