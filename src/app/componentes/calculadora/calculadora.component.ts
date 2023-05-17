@@ -18,6 +18,7 @@ export class CalculadoraComponent implements OnInit {
 // calcoladora
   }
   mostrar(valor: string){
+    this.error=false;
     if(this.resultado!=""){
       this.resultado="",
       this.display=this.formular;
@@ -36,16 +37,19 @@ export class CalculadoraComponent implements OnInit {
     this.formula = this.formula.substr(0, this.formula.length - 1);
   }
   limpiar() {
+    
     this.formula="";
     this.Resultado="coloque la formula";
   }
   // calcoladora
 AC(){
+  this.error=false;
   this.display="0";
   this.resultado="";
   this.formular="";
 }
 C(){
+  this.error=false;
   if(this.formular.length>0){
     this.display=this.formular;
     this.resultado="";
@@ -55,6 +59,7 @@ C(){
   this.display=(this.display=="")?"0":this.display;
 }
 calc(){
+  this.error=false;
   this.formular=this.display;
   try {
     this.resultado=eval(this.display);
