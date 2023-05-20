@@ -1,105 +1,120 @@
+<div class="container">
 
-
-<div class="container"> 
-
-    <div class="input-group flex-nowrap">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">formula</span>
-        </div>
-        <input type="text" class="form-control" placeholder="escriba la formula matematica" aria-label="Username" aria-describedby="addon-wrapping"[(ngModel)]="formula">
-         <button class="btn btn-outline-primary"(click)="calcular()">calcular</button>
-         <button class="btn btn-dark" (click)="retroceso()"><-</button>
-         <button class="btn btn-danger" (click)="limpiar()">AC</button>
+  <div class="input-group flex-nowrap">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="addon-wrapping">formula</span>
     </div>
+    <input type="text" class="form-control" placeholder="escriba la formula matematica" aria-label="Username"
+      aria-describedby="addon-wrapping" [(ngModel)]="formula">
+    <button class="btn btn-outline-primary" (click)="calcular()">calcular</button>
+    <button class="btn btn-dark" (click)="retroceso()"><-< /button>
+        <button class="btn btn-danger" (click)="limpiar()">AC</button>
+        </button>
+  </div>
 
-    <br>
-    <h4>Resultado= {{Resultado}}</h4>
+  <br>
+  <h4>Resultado= {{Resultado}}</h4>
 
-    <hr>
-    <br><br>
+  <hr>
+  <br><br>
 
-    <div class="row justify-content-center ">
-      <div class="col-4 sm-2 bodercalculadora pt-3">
-        <div class="row mb-2">
-          <div class="col">
-            <div> <textarea name="" id="" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}"row ="2"> {{display}}
-           </textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="AC()">AC</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="C()">C</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('.')">.</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="calc()">=</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('7')">7</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('8')">8</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('9')">9</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('/')">/</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('4')">4</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('5')">5</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('6')">6</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('*')">*</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('1')">1</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('2')">2</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('3')">3</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('-')">-</button>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('(')">(</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar(')')">)</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('0')">0</button>
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary calculado"(click)="mostrar('+')">+</button>
-          </div>
-        </div>
+  <div class="row justify-content-center ">
+    <div class="col-4 sm-2 bodercalculadora pt-3">
+      <div class="row mb-2">
+        <div class="col-9">
+          <div class="display" textarea name="" id="" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}"
+            row="2"> {{display}}
 
+          </div>
+          <div class="col-3">
+            <button class="btn btn-outline-primary boton" (click)="cambiar()">{{nombre}}</button>
+          </div>
+        </div>
       </div>
-    </div>
-</div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="AC()">AC</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="C()">C</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('.')">.</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="calc()">=</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('7')">7</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('8')">8</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('9')">9</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('/')">/</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('4')">4</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('5')">5</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('6')">6</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('*')">*</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('1')">1</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('2')">2</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('3')">3</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('-')">-</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('(')">(</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar(')')">)</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('0')">0</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('+')">+</button>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('%')">%</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('π')">π</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('mod')">mod</button>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="mostrar('+/-')">+/-</button>
+        </div>
+      </div>
 
-0
+    </div>
+  </div>

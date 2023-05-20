@@ -12,6 +12,8 @@ export class CalculadoraComponent implements OnInit {
   private resultado="";
   private formular="";
   public error:boolean =false;
+  public tipo:boolean=false;
+  public nombre:string="ctf";
   constructor() { }
 
   ngOnInit(): void {
@@ -59,7 +61,6 @@ C(){
   this.display=(this.display=="")?"0":this.display;
 }
 calc(){
-  this.error=false;
   this.formular=this.display;
   try {
     this.resultado=eval(this.display);
@@ -69,5 +70,20 @@ calc(){
   }
   this.display=this.formular+"\n"+this.resultado;
 }
+cambiar(){
+this.tipo=!this.tipo;
+if(this.tipo){
+  this.nombre="STD";
+}else{
+  this.nombre="CTF";
+}
+}
+
+
+
+
+
+
+
 }
 
