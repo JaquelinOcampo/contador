@@ -9,7 +9,7 @@
     <button class="btn btn-outline-primary" (click)="calcular()">calcular</button>
     <button class="btn btn-dark" (click)="retroceso()"><-< /button>
         <button class="btn btn-danger" (click)="limpiar()">AC</button>
-        </button>
+    </button>
   </div>
 
   <br>
@@ -22,13 +22,12 @@
     <div class="col-4 sm-2 bodercalculadora pt-3">
       <div class="row mb-2">
         <div class="col-9">
-          <div class="display" textarea name="" id="" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}"
-            row="2"> {{display}}
-
-          </div>
-          <div class="col-3">
-            <button class="btn btn-outline-primary boton" (click)="cambiar()">{{nombre}}</button>
-          </div>
+          <textarea   rows="3" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}">
+            {{display}}
+          </textarea>               
+        </div>
+        <div class="col-3">
+          <button class="btn btn-outline-primary calculado" (click)="cambiar()">{{nombre}}</button>
         </div>
       </div>
       <div class="row mb-2">
@@ -101,7 +100,7 @@
           <button class="btn btn-outline-primary calculado" (click)="mostrar('+')">+</button>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-2" *ngIf="tipo">
         <div class="col-3">
           <button class="btn btn-outline-primary calculado" (click)="mostrar('%')">%</button>
         </div>
