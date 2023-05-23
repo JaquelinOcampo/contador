@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contador';
- 
+ public panelH:boolean=false;
+
+ mostrarPanel(x:boolean){
+  this.panelH=!this.panelH;
+ }
   
   
 

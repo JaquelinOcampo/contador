@@ -1,33 +1,19 @@
 <div class="container">
 
-  <div class="input-group flex-nowrap">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="addon-wrapping">formula</span>
-    </div>
-    <input type="text" class="form-control" placeholder="escriba la formula matematica" aria-label="Username"
-      aria-describedby="addon-wrapping" [(ngModel)]="formula">
-    <button class="btn btn-outline-primary" (click)="calcular()">calcular</button>
-    <button class="btn btn-dark" (click)="retroceso()"><-< /button>
-        <button class="btn btn-danger" (click)="limpiar()">AC</button>
-    </button>
-  </div>
-
-  <br>
-  <h4>Resultado= {{Resultado}}</h4>
-
-  <hr>
-  <br><br>
+ 
 
   <div class="row justify-content-center ">
-    <div class="col-4 sm-2 bodercalculadora pt-3">
+    <div class=" bodercalculadora ">
       <div class="row mb-2">
         <div class="col-9">
-          <textarea   rows="3" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}">
+          <textarea rows="3" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}">
             {{display}}
-          </textarea>               
+          </textarea>
         </div>
         <div class="col-3">
+           <button class="btn btn-outline-primary calculado"(click)="mostrarPanel()">his</button>
           <button class="btn btn-outline-primary calculado" (click)="cambiar()">{{nombre}}</button>
+         
         </div>
       </div>
       <div class="row mb-2">

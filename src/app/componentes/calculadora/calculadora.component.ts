@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-calculadora',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent implements OnInit {
+@Output () mosHist: EventEmitter <boolean>= new EventEmitter();
+
   public formula: string = "";
   public Resultado: string = "coloque la formula";
   public display: string = "0";
@@ -20,10 +23,11 @@ export class CalculadoraComponent implements OnInit {
   ngOnInit(): void {
     // calcoladora
   }
-
-
   isNumeric(val: string) {
-    return /^[0-9/-]+([.][0-9]+)?$/.test(val);
+    return /^[0-9-.]+([.][0-9]+)?$/.test(val);
+  }
+  sustraer(x: number) {
+    return this.display.charAt(this.display.length - x);
   }
 
 
@@ -39,28 +43,42 @@ export class CalculadoraComponent implements OnInit {
     if (valor == "%") {
       let x = 1;
       this.valAnterior = "";
-      while (this.isNumeric(this.display.charAt(this.display.length - x))) {
-        this.valAnterior = this.display.charAt(this.display.length - x) + this.valAnterior;
+      while (this.isNumeric(this.sustraer(x))) {
+        this.valAnterior = this.sustraer(x) + this.valAnterior;
         x++;
-        console.log("val anterior", this.valAnterior);
+        // console.log("val anterior", this.valAnterior);
 
       }
-      this.display = this.display.substring(0, this.display.length - x + 1);
-      console.log(this.display);
-      valor = (eval(this.valAnterior) / 100).toString();
-
+      this.display = this.display.substring(0, this.display.length + 1 - x);
+      valor = (eval(this.valAnterior) / 100).toFixed(3).toString();
+      //console.log(this.display);
     }
     if (valor == "π") {
-      valor = (Math.PI).toString();
+      valor = (Math.PI.toFixed(4).toString());
+      let c = this.display.slice(-1);
+      if (c != "(" && c != "+" && c != "-" && c != "/" && c != "*" && c != "d" && c != "." && this.display != "") {
+        valor = "*" + valor;
+      }
     }
-    if (valor == "mod") {
-      valor = "%";
+    if (valor == "+/-") {
+      let x = 1;
+      this.valAnterior = "";
+      while (this.isNumeric(this.sustraer(x))) {
+        this.valAnterior = this.sustraer(x) + this.valAnterior;
+        x++;
+
+
+      }
+      this.display = this.display.substring(0, this.display.length + 1 - x);
+      valor = (eval(this.valAnterior) * -1).toString();
+
+
     }
 
     this.display = this.display + valor;
 
-  }
 
+  }
 
 
 
@@ -99,7 +117,7 @@ export class CalculadoraComponent implements OnInit {
   calc() {
     this.formular = this.display;
     try {
-      this.resultado = eval(this.display);
+      this.resultado = eval(this.display.replace("mod", "%"));
     } catch {
       this.resultado = "error"
       this.error = true;
@@ -114,7 +132,9 @@ export class CalculadoraComponent implements OnInit {
       this.nombre = "CTF";
     }
   }
-
+mostrarPanel(){
+  this.mosHist.emit(true);
+}
 
 
 
