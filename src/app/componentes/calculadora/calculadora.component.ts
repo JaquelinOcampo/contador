@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input} from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,9 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
   styleUrls: ['./calculadora.component.css']
 })
 export class CalculadoraComponent implements OnInit {
-@Output () mosHist: EventEmitter <boolean>= new EventEmitter();
+  @Output() mosHist: EventEmitter<boolean> = new EventEmitter();
+  @Output() hist: EventEmitter<string> = new EventEmitter();
+  @Input() borrarH = false;
 
   public formula: string = "";
   public Resultado: string = "coloque la formula";
@@ -18,6 +20,8 @@ export class CalculadoraComponent implements OnInit {
   public tipo: boolean = false;
   public nombre: string = "CTF";
   private valAnterior: string = "";
+  private historial: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -123,6 +127,9 @@ export class CalculadoraComponent implements OnInit {
       this.error = true;
     }
     this.display = this.formular + "\n" + this.resultado;
+    this.hayhistoria();
+    this.historial = this.historial + "\n" + this.formular + "=" + this.resultado;
+    this.mostrarHistoria();
   }
   cambiar() {
     this.tipo = !this.tipo;
@@ -132,13 +139,23 @@ export class CalculadoraComponent implements OnInit {
       this.nombre = "CTF";
     }
   }
-mostrarPanel(){
-  this.mosHist.emit(true);
-}
+  mostrarPanel() {
+    this.mosHist.emit(true);
+  }
 
 
+  mostrarHistoria() {
+    this.hayhistoria();
+    this.hist.emit(this.historial);
 
+  }
+  hayhistoria(){
+    if(this.borrarH){
+      this.historial="";
+      this.borrarH=false;
 
+    }
+  }
 
 
 }
