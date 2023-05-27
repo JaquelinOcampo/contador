@@ -5,16 +5,18 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class=" col-ms-12 col-md-6 col-lg-4">
-        <app-calculadora [borrarH]="borrar" (mosHist)="mostrarPanel($event)"(hist)="historial_($event)"></app-calculadora>
-       </div>
-        <div class=" col-ms-12 col-md-6 col-lg-4" *ngIf="panelH">
-          <textarea rows="13" class="overflow-auto bg-info border border-dark rouded w-100 p-3">
+        <app-calculadora [borrarH]="borrar" [cambiarH]="cambiarh"  (mosHist)="mostrarPanel($event)"
+          (hist)="historial_($event)"></app-calculadora>
+        <br>
+        <button class="btn btn-danger  btn-block" (click)="borrarH()">cambiar color de calculadora </button>
+      </div>
+      <div class=" col-ms-12 col-md-6 col-lg-4" *ngIf="panelH">
+        <textarea rows="13" class="overflow-auto  border border-dark rouded w-100 p-3"  [ngClass]="{'fondo3':!error,'fondo4':error}">
           {{historial}}
           </textarea>
-          <button class="btn btn-danger  btn-block" (click)="borrarH()">eliminar historial</button>
+        <button class="btn btn-danger  btn-block" (click)="borrarH()">eliminar historial</button>
+        <button class="btn btn-danger  btn-block" (click)="cambiar()">cambiar color de historial</button>
 
-        </div>
-        </div>
+      </div>
+    </div>
   </div>
-       
-  

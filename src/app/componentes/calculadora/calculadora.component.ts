@@ -10,6 +10,7 @@ export class CalculadoraComponent implements OnInit {
   @Output() mosHist: EventEmitter<boolean> = new EventEmitter();
   @Output() hist: EventEmitter<string> = new EventEmitter();
   @Input() borrarH = false;
+  @Input() cambiarH = false;
 
   public formula: string = "";
   public Resultado: string = "coloque la formula";
@@ -33,6 +34,11 @@ export class CalculadoraComponent implements OnInit {
   sustraer(x: number) {
     return this.display.charAt(this.display.length - x);
   }
+
+get cambiarcolor(){
+  console.log("object");
+  return this.cambiarH;
+}
 
 
   mostrar(valor: string) {

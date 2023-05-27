@@ -10,7 +10,8 @@ export class AppComponent {
   public panelH: boolean = false;
   public historial: string = "historia";
   public borrar: boolean = false;
-
+public error:boolean=false;
+public cambiarh:boolean=false;
   mostrarPanel(x: boolean) {
     this.panelH = !this.panelH;
   }
@@ -24,6 +25,10 @@ export class AppComponent {
     this.historial = "";
     this.borrar = true;
   }
-
+cambiar(){
+  this.error=!this.error;
+  this.cambiarh=!this.cambiarh;
+  console.log(this.cambiarh);
+}
 
 }

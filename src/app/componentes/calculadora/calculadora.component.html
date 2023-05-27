@@ -1,19 +1,20 @@
 <div class="container">
 
- 
+
 
   <div class="row justify-content-center ">
     <div class=" bodercalculadora ">
       <div class="row mb-2">
         <div class="col-9">
-          <textarea rows="3" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}">
+          <textarea rows="3" class="display" [ngClass]="{'fondo1':!error,'fondo2':error}" [ngClass]="{'fondo3':!cambiarcolor,'fondo4':cambiarcolor}">
             {{display}}
           </textarea>
+
         </div>
         <div class="col-3">
-           <button class="btn btn-outline-primary calculado"(click)="mostrarPanel()">his</button>
+          <button class="btn btn-outline-primary calculado" (click)="mostrarPanel()">his</button>
           <button class="btn btn-outline-primary calculado" (click)="cambiar()">{{nombre}}</button>
-         
+
         </div>
       </div>
       <div class="row mb-2">
